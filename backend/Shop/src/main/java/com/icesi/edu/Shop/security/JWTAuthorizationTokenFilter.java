@@ -50,7 +50,7 @@ public class JWTAuthorizationTokenFilter extends OncePerRequestFilter {
 
    private static final String USER_ID_CLAIM_NAME = "userId";
 
-   private static final String[] excludedPaths = {"GET /users", "POST /login"};
+   private static final String[] excludedPaths = {"POST /login", "POST /users/createUser"};
 
 
     @Override
@@ -97,6 +97,7 @@ public class JWTAuthorizationTokenFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
         String methodPlusPath = request.getMethod() + " " + request.getRequestURI();
+        System.out.println(methodPlusPath);
         return Arrays.stream(excludedPaths).anyMatch(path -> path.equalsIgnoreCase(methodPlusPath));
     }
 
