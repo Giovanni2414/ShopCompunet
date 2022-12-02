@@ -1,27 +1,24 @@
 package com.icesi.edu.Shop.dto;
 
+import com.icesi.edu.Shop.model.Permission;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
+import java.util.List;
 import java.util.UUID;
 
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ComputerDTO {
+public class RoleDTO {
 
-    private UUID computerId;
+    private UUID roleId;
 
     private String name;
 
     private String description;
 
-    private double price;
-
-    private String imagePath;
+    private List<Permission> rolePermissions;
 
 }

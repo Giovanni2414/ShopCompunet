@@ -24,7 +24,7 @@ public class UserDTO {
 
     private String phoneNumber;
 
-    private Role rol;
+    private RoleDTO rol;
 
     private List<OrderDTO> userOrders;
 

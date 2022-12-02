@@ -1,14 +1,18 @@
 package com.icesi.edu.Shop.model;
 
-import lombok.Data;
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.UUID;
 
-@Data
+@Getter
+@Setter
 @Entity
+@Builder
 @Table(name = "`orders_items`")
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrderItem {
 
     @Id
@@ -19,8 +23,12 @@ public class OrderItem {
     @Column(name = "order_item_quantity")
     private int quantity;
 
+    @ManyToOne()
+    @JoinColumn(name = "order_item_order_id")
+    private Order order;
+
     @OneToOne()
-    @JoinColumn(name = "order_item_id")
+    @JoinColumn(name = "order_item_computer_id")
     private Computer computer;
 
     @PrePersist

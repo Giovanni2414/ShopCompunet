@@ -34,7 +34,7 @@ public class User {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "role_id")
     private Role role;
 

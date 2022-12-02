@@ -5,15 +5,19 @@ import com.icesi.edu.Shop.dto.UserRegisterDTO;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RequestMapping("/users")
 @CrossOrigin(origins = "*")
 public interface UserAPI {
 
     @PostMapping()
-    UserDTO registerNewUser(@RequestBody UserRegisterDTO userRegisterDTO);
+    public UserDTO registerNewUser(@RequestBody UserRegisterDTO userRegisterDTO);
 
     @GetMapping()
     public List<UserDTO> getUsers();
+
+    @GetMapping("/{userId}")
+    public UserDTO getUser(@PathVariable UUID userId);
 
 }

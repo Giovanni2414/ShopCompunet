@@ -30,7 +30,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getUsers() {
-        return StreamSupport.stream(userRepository.findAll().spliterator(),false).collect(Collectors.toList());
+        List<User> users = StreamSupport.stream(userRepository.findAll().spliterator(),false).collect(Collectors.toList());
+        return users;
+    }
+
+    @Override
+    public User getUser(UUID userId) {
+        return userRepository.findById(userId).orElse(null);
     }
 
 }

@@ -11,7 +11,10 @@
                 <constraints nullable="false" primaryKey="true" />
             </column>
             <column name="order_item_quantity" type="int" />
-            <column name="computer_id" type="UUID">
+            <column name="order_item_order_id" type="UUID">
+                <constraints nullable="false" references="orders(order_id)" foreignKeyName="fk-order-orderitem"/>
+            </column>
+            <column name="order_item_computer_id" type="UUID">
                 <constraints nullable="false" references="computers(computer_id)" foreignKeyName="fk-orderitem-computer"/>
             </column>
         </createTable>

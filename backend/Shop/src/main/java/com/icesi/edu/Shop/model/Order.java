@@ -2,14 +2,17 @@ package com.icesi.edu.Shop.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.icesi.edu.Shop.enums.OrderStates;
-import lombok.Data;
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
 
-@Data
+@Getter
+@Setter
+@ToString(exclude = "orderItems")
+@EqualsAndHashCode(exclude = "orderItems")
 @Entity
 @Table(name = "`orders`")
 @JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","FieldHandler"})                
@@ -26,8 +29,7 @@ public class Order {
     @Column(name = "order_status")
     private String status;
 
-    @OneToMany()
-    @JoinColumn(name = "order_id")
+    @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems;
 
     @PrePersist

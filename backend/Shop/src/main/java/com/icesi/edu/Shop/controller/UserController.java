@@ -7,10 +7,12 @@ import com.icesi.edu.Shop.mapper.UserMapper;
 import com.icesi.edu.Shop.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
@@ -28,7 +30,13 @@ public class UserController implements UserAPI {
 
     @Override
     public List<UserDTO> getUsers() {
-        return userService.getUsers().stream().map(userMapper::fromUserToUserDTO).collect(Collectors.toList());
+        List<UserDTO> users = userService.getUsers().stream().map(userMapper::fromUserToUserDTO).collect(Collectors.toList());
+        return users;
+    }
+
+    @Override
+    public UserDTO getUser(UUID userId) {
+        return userMapper.fromUserToUserDTO(userService.getUser(userId));
     }
 
 }

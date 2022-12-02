@@ -1,9 +1,11 @@
 package com.icesi.edu.Shop.mapper;
 
 import com.icesi.edu.Shop.dto.OrderDTO;
+import com.icesi.edu.Shop.dto.RoleDTO;
 import com.icesi.edu.Shop.dto.UserDTO;
 import com.icesi.edu.Shop.dto.UserRegisterDTO;
 import com.icesi.edu.Shop.model.Order;
+import com.icesi.edu.Shop.model.Role;
 import com.icesi.edu.Shop.model.User;
 import org.mapstruct.Mapper;
 
@@ -16,6 +18,5 @@ public interface UserMapper {
     UserDTO fromUserToUserDTO(User user);
     UserRegisterDTO fromUserToUserRegisterDTO(User user);
     UserRegisterDTO fromUserDTOtoUserRegisterDTO(UserDTO userDTO);
-    OrderDTO map(Order value);
 
 }
