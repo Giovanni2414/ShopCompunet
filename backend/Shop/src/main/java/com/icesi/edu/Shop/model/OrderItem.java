@@ -23,9 +23,8 @@ public class OrderItem {
     @Column(name = "order_item_quantity")
     private int quantity;
 
-    @ManyToOne()
-    @JoinColumn(name = "order_item_order_id")
-    private Order order;
+    @Column(name = "order_item_order_id")
+    private UUID order_id;
 
     @OneToOne()
     @JoinColumn(name = "order_item_computer_id")

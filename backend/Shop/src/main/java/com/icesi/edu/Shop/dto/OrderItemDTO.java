@@ -19,7 +19,7 @@ public class OrderItemDTO {
 
     private int quantity;
 
-    private Order order;
+    private UUID order_id;
 
     private Computer computer;
 

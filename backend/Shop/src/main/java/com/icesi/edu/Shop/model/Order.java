@@ -29,7 +29,8 @@ public class Order {
     @Column(name = "order_status")
     private String status;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany()
+    @JoinColumn(name = "order_item_order_id")
     private List<OrderItem> orderItems;
 
     @PrePersist
