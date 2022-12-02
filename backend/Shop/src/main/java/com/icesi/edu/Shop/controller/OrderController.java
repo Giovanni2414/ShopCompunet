@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @AllArgsConstructor
@@ -21,5 +22,10 @@ public class OrderController implements OrderAPI {
     @Override
     public OrderDTO createOrder(List<OrderItemToCreateDTO> orderItemToCreateDTOList) {
         return orderMapper.fromOrder(orderService.createOrder(orderItemToCreateDTOList));
+    }
+
+    @Override
+    public void deleteOrder(UUID orderId) {
+        orderService.deleteOrder(orderId);
     }
 }

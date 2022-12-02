@@ -32,7 +32,7 @@ public class Order {
     @Column(name = "user_id")
     private UUID userId;
 
-    @OneToMany()
+    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JoinColumn(name = "order_item_order_id")
     private List<OrderItem> orderItems;
 

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Service
@@ -44,5 +45,10 @@ public class OrderServiceImpl implements OrderService {
             orderItemRepository.save(orderItem);
         }
         return orderRepository.findById(createdOrder.getOrderId()).orElse(null);
+    }
+
+    @Override
+    public void deleteOrder(UUID orderId) {
+        orderRepository.deleteById(orderId);
     }
 }
