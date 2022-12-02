@@ -9,10 +9,10 @@ import java.util.List;
 @RequestMapping("/users")
 public interface UserAPI {
 
-    @PostMapping("/createUser")
+    @PostMapping()
     UserDTO registerNewUser(@RequestBody UserRegisterDTO userRegisterDTO);
 
-    @GetMapping("/users")
+    @GetMapping()
     public List<UserDTO> getUsers();
 
 }
