@@ -14,7 +14,7 @@ public class Computer {
 
     @Id
     @Type(type="org.hibernate.type.PostgresUUIDType")
-    @Column(name = "role_id")
+    @Column(name = "computer_id")
     private UUID computerId;
 
     @Column(name = "computer_name")
