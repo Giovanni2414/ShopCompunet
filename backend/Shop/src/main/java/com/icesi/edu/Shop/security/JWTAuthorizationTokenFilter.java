@@ -73,9 +73,11 @@ public class JWTAuthorizationTokenFilter extends OncePerRequestFilter {
             if (containsToken(request)) {
                 String jwtToken = request.getHeader(AUTHORIZATION_HEADER).replace(TOKEN_PREFIX, StringUtils.EMPTY);
                 Claims claims = JWTParser.decodeJWT(jwtToken);
-                SecurityContext context = parseClaims(jwtToken, claims);
+                SecurityContext context = parseClaims(jwtToken, claims); System.out.println("filterChain");
                 SecurityContextHolder.setUserContext(context);
+
                 filterChain.doFilter(request, response);
+
             } else {
                 createUnauthorizedFilter(new ShopException(HttpStatus.UNAUTHORIZED, new ShopError(CODE_UD_01, CODE_UD_01.getMessage())), response);
             }
