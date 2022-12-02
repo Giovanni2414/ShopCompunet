@@ -22,6 +22,6 @@ public class UserRegisterDTO {
 
     private String phoneNumber;
 
-    private Role rol;
+    private RoleDTO rol;
 
 }

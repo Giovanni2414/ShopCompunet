@@ -13,14 +13,13 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderItemDTO {
+public class OrderItemToCreateDTO {
 
-    private UUID orderItemId;
 
     private int quantity;
 
-    private Order order;
+    private UUID order;
 
-    private Computer computer;
+    private UUID computer;
 
 }

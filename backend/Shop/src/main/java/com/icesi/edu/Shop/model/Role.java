@@ -1,6 +1,7 @@
 package com.icesi.edu.Shop.model;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -10,6 +11,9 @@ import java.util.UUID;
 @Data
 @Table(name = "`user_role`")
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Role {
 
     @Id
