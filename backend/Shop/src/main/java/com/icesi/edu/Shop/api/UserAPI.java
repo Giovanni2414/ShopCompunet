@@ -23,4 +23,7 @@ public interface UserAPI {
     @PostMapping("/becomeAdmin/{userId}")
     public UserDTO becomeAdmin(@PathVariable UUID userId);
 
+    @GetMapping("/personalInfo")
+    public UserDTO getPersonalInfoOfLoggedUser();
+
 }

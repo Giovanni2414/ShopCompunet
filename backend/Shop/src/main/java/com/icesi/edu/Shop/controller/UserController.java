@@ -6,6 +6,7 @@ import com.icesi.edu.Shop.dto.UserRegisterDTO;
 import com.icesi.edu.Shop.error.exception.ShopError;
 import com.icesi.edu.Shop.error.exception.ShopException;
 import com.icesi.edu.Shop.mapper.UserMapper;
+import com.icesi.edu.Shop.security.SecurityContextHolder;
 import com.icesi.edu.Shop.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -54,6 +55,11 @@ public class UserController implements UserAPI {
     @Override
     public UserDTO becomeAdmin(UUID userId) {
         return userMapper.fromUserToUserDTO(userService.becomeAdmin(userId));
+    }
+
+    @Override
+    public UserDTO getPersonalInfoOfLoggedUser() {
+        return userMapper.fromUserToUserDTO(userService.getUser(SecurityContextHolder.getContext().getUserId()));
     }
 
 }
