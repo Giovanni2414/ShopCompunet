@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RequestMapping("/users")
+@CrossOrigin(origins = "*")
 public interface UserAPI {
 
     @PostMapping()
