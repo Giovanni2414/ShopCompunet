@@ -8,4 +8,6 @@
     <include file="./create_role_permission.xml" relativeToChangelogFile="true" />
     <include file="./create_user.xml" relativeToChangelogFile="true" />
     <include file="./create_computer.xml" relativeToChangelogFile="true" />
+    <include file="./create_order.xml" relativeToChangelogFile="true" />
+    <include file="./create_order_item.xml" relativeToChangelogFile="true" />
 </databaseChangeLog>
