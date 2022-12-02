@@ -97,6 +97,9 @@ public class JWTAuthorizationTokenFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
         String methodPlusPath = request.getMethod() + " " + request.getRequestURI();
+        if(request.getMethod().equalsIgnoreCase("options")){
+            return true;
+        }
         System.out.println(methodPlusPath);
         return Arrays.stream(excludedPaths).anyMatch(path -> path.equalsIgnoreCase(methodPlusPath));
     }
