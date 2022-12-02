@@ -18,8 +18,6 @@ public class OrderItemToCreateDTO {
 
     private int quantity;
 
-    private UUID order;
-
     private UUID computer;
 
 }

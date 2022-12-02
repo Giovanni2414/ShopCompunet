@@ -20,4 +20,7 @@ public interface UserAPI {
     @GetMapping("/{userId}")
     public UserDTO getUser(@PathVariable UUID userId);
 
+    @PostMapping("/becomeAdmin/{userId}")
+    public UserDTO becomeAdmin(@PathVariable UUID userId);
+
 }

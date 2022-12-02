@@ -8,7 +8,8 @@ import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
 
-@Data
+@Getter
+@Setter
 @Table(name = "`user_role`")
 @Entity
 @Builder

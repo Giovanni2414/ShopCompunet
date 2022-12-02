@@ -15,4 +15,6 @@ public interface UserService {
 
     public User getUser(UUID userId);
 
+    public User becomeAdmin(UUID userId);
+
 }

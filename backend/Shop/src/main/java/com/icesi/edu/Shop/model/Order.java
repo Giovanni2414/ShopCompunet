@@ -29,6 +29,9 @@ public class Order {
     @Column(name = "order_status")
     private String status;
 
+    @Column(name = "user_id")
+    private UUID userId;
+
     @OneToMany()
     @JoinColumn(name = "order_item_order_id")
     private List<OrderItem> orderItems;

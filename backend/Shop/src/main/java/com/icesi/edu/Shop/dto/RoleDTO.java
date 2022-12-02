@@ -2,6 +2,7 @@ package com.icesi.edu.Shop.dto;
 
 import com.icesi.edu.Shop.model.Permission;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class RoleDTO {
 
     private UUID roleId;

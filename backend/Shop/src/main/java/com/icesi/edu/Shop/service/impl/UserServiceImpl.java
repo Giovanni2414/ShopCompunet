@@ -1,7 +1,6 @@
 package com.icesi.edu.Shop.service.impl;
 
-import com.icesi.edu.Shop.dto.UserDTO;
-import com.icesi.edu.Shop.dto.UserRegisterDTO;
+import com.icesi.edu.Shop.model.Role;
 import com.icesi.edu.Shop.model.User;
 import com.icesi.edu.Shop.repository.RoleRepository;
 import com.icesi.edu.Shop.repository.UserRepository;
@@ -37,6 +36,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUser(UUID userId) {
         return userRepository.findById(userId).orElse(null);
+    }
+
+    @Override
+    public User becomeAdmin(UUID userId) {
+        Role adminRole = roleRepository.findRoleByName("admin");
+        User user = userRepository.findById(userId).orElse(null);
+        user.setRole(adminRole);
+        return userRepository.save(user);
     }
 
 }

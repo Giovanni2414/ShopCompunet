@@ -39,4 +39,9 @@ public class UserController implements UserAPI {
         return userMapper.fromUserToUserDTO(userService.getUser(userId));
     }
 
+    @Override
+    public UserDTO becomeAdmin(UUID userId) {
+        return userMapper.fromUserToUserDTO(userService.becomeAdmin(userId));
+    }
+
 }
